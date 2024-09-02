@@ -1,0 +1,187 @@
+:root {
+    --cor1: #FCFCFC;
+    --cor2: #333333;
+    --cor3: #E21821;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+.parte1 {
+    background-color: var(--cor1);
+	width: 50%;
+	float: left;
+	height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+}
+.Flogo {
+    width: 7vh;
+    margin-top: 3%;
+    margin-left: 2rem;
+}
+.Cad_box {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    justify-content: center;
+    margin-left: 20%;
+    height: 75%;
+}
+.Titulo {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    color: var(--cor2);
+    margin-bottom: 3%;
+}
+.Grupo_input {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    position: static;
+    margin-bottom: 10px;
+    width: 55vh;
+}
+.Grupo_input label.text {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    color: var(--cor2);
+    font-weight: 700;
+    position: relative;
+    top: 0.5rem;
+    margin: 0 0 0 18px;
+    padding: 0 3px;
+    background: var(--cor1);
+    width: fit-content;
+}
+.Grupo_input input[class=input].input {
+    padding: 10px 15px;
+    font-size: 0.75rem;
+    border: 2px var(--cor2) solid;
+    border-radius: 12px;
+    font-size: 0.90rem;
+    background: var(--cor1);
+    outline: none;
+}
+
+.Img_add {
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.90rem;
+    font-weight: bold;
+    height: 6rem;
+    width: 45vh;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    gap: 10px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--cor3);
+    background-color: #ffe8e8;
+    
+    border-radius: 10px;
+    margin-top: 15px;
+}
+  
+.Img_add .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.Img_add .icon svg {
+    height: 40px;
+    fill: var(--cor3);
+}
+  
+.Img_add .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+.Img_add .text span {
+    font-weight: bold;
+    color: #000000;
+}
+  
+.Img_add input {
+    display: none;
+}
+
+.btn {
+    width: 55vh;
+    height: 5vh;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    margin-top: 20px;
+    background-color: #585858;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    color: var(--cor1);
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #222222;
+}
+.red_senha{
+    font-family: "Open Sans", sans-serif;
+    font-size: 0.90rem;
+    color: var(--cor2);
+    font-weight: bold;
+    margin-top: 10px;
+}
+.parte2{
+	background-image: url(imgs/CadastroProfessor.png);
+    background-position: center;
+    background-size: cover;
+	width: 50%;
+	float: left;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
+    box-sizing: border-box;
+}
+
+/* -=RESPONSIVIDADE=- */
+
+@media (max-width: 1275px) {
+    .parte1 {
+        width: 100%;
+    }
+    .parte2{
+        display: none;
+    }
+    .Cad_box {
+        align-items: center; 
+        margin-left: auto;
+    }
+    .Titulo {
+        font-size: 1.3rem;
+    }
+    .Grupo_input {
+        width: 40vh;
+    }
+    .Img_add{
+        width: 40vh;
+    }
+    .Img_add .text {
+        font-size: 0.75rem;
+    }
+    .btn {
+        justify-content: center;
+        width: 40vh;
+        height: 3rem;
+    }
+    .Flogo {
+        width: 5vh;
+        margin-top: 1rem;
+        margin-left: 1rem;
+    }
+}

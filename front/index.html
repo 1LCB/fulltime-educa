@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style_log.css">
+    <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon">
+    <title>FullEduca - Login</title>
+</head>
+
+<body>
+    <div class="parte1">
+        <img src="imgs/Ativo 8@2x.png" class="Flogo" alt="Logo da empresa Fulltime">
+
+        <div class="Cad_box">
+            <h1 class="Titulo">Login</h1>
+
+            <div class="Grupo_input">
+                <label for="email" class="text">Email</label>
+                <input type="email" id="email" placeholder="Email do Usuário" class="input" required autofocus>
+            </div>
+
+            <div class="Grupo_input">
+                <label for="password" class="text">Senha</label>
+                <input type="password" id="password" placeholder="Senha do Usuário" class="input" required>
+            </div>
+
+            <button class="btn" onclick="login()">Entrar</button>
+
+            <a class="red_senha" href="">Esqueceu sua senha?</a>
+        </div>
+    </div>
+    <div class="parte2">
+    </div>
+
+    <script>
+        async function login() {
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const data = new URLSearchParams();
+            data.append('username', email);
+            data.append('password', password);
+
+            fetch('http://localhost:8080/api/auth/authenticate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: data.toString()
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Falha na autenticação. Código de status: ' + response.status);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    window.location.href = 'dashboard.html';
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Ocorreu um erro. Tente novamente mais tarde.');
+                });
+        }
+    </script>
+</body>
+
+</html>
