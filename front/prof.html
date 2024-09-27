@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <script defer src="script.js"></script>
+    <script defer src="script1.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Full Educa</title>
+</head>
+<body>
+    <header class="header">
+        <section class="menu_logo_container">
+            <button class="trocar-btn">
+                <img src="img/icons/menu_icon.svg" alt="Icon Menu">
+            </button>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo">
+                <span>Full Educa</span>
+            </div>
+        </section>
+        <div class="barra-pesquisa">
+            <input class="barra-pesquisa-input" type="text" placeholder="Pesquisar">
+            <button class="pesquisar-btn">
+                <img src="img/icons/pesquisar_icon.svg" alt="Search">
+            </button>
+        </div>
+        <div class="header-actions">
+            <button class="recarregar-btn" onclick="recarregarPagina()">
+                <img src="img/icons/recarregar_icon.svg" alt="Refresh">
+            </button>
+            <button class="user-btn">
+                <span>S</span>
+            </button>
+        </div>
+    </header>
+
+
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <img src="img/icons/dashboard_icon.svg" alt="Icon Dashboard">
+                    <span class="item-text">DashBoard</span>
+                </a>
+            </li>
+            <li>
+                <a href="aluno.html">
+                    <img src="img/icons/aluno_icon.svg" alt="Icon Students">
+                    <span class="item-text">Alunos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/mat_curso_icon.svg" alt="Icon Students">
+                    <span class="item-text">Cadastrar Curso</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/aulas_icon.svg" alt="Icon Students">
+                    <span class="item-text">Aulas</span>
+                </a>
+            </li>
+            <li>
+                <a href="prof.html">
+                    <img src="img/icons/professor_icon.svg" alt="Icon Students">
+                    <span class="item-text">Professores</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/avaliacao_icon.svg" alt="Icon Students">
+                    <span class="item-text">Avaliações</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/turmas_icon.svg" alt="Icon Students">
+                    <span class="item-text">Turmas</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/frequencia_icon.svg" alt="Icon Students">
+                    <span class="item-text">Frequência</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="conteudo">
+        <div class="top_menu">
+            <div>
+                <span class="title">Lista de Professores</span>
+                <span class="total">Total: 4</span>
+            </div>
+            <div style="display: flex;">
+                <button class="add-button" data-bs-toggle="offcanvas" href="#offcanvasProfessor" role="button" aria-controls="offcanvasExample" >
+                    <i class="fas fa-plus"></i> Add
+                </button>  
+                <svg style="margin: 1rem;" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32l432 0c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9 320 448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6l0-79.1L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>            
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasProfessor" aria-labelledby="offcanvasExampleLabel" style="width: 800px;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Cadastrar Professor</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div class="detalhesprof">
+                    <form>
+                        <div class="dtanameprof">
+                            <label for="username">Nome do Professor</label>
+                            <input type="text" id="usernameprof" name="username" placeholder="Digite o nome do professor" class="form-control" required>
+                        </div><br>
+                        <div class="dtaemailprof">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="emailprof" name="email" placeholder="Digite o e-mail do professor" class="form-control" required>
+                        </div><br>
+                        <div class="dtatelefoneprof">
+                            <label for="telefone_celular">Telefone Celular:</label>
+                            <input type="tel" id="telefone_celularprof" name="telefone_celular" placeholder="Digite o telefone" class="form-control" required>
+                        </div><br>
+                        <div class="dtaenderecoprof">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="enderecoprof" name="endereco" placeholder="Digite o endereço" class="form-control" required>
+                        </div><br>
+                        
+                        <div class="imguser">
+                            <h5 class="t1">Imagem do Usuário</h5>
+                            <div class="position-relative">
+                                <div class="upload-container" onclick="document.getElementById('fileInputprofessor').click()">
+                                    <img src="img/icons/Vector (1).png" alt="Upload Icon">
+                                    <input type="file" id="fileInputprofessor" accept="image/*" style="display:none;">
+                                    <p>Selecione ou arraste sua imagem aqui</p>
+                                    <p><strong>Clique aqui</strong> para selecionar</p>
+                                </div>
+                            </div>
+                        </div><br>
+                        
+                        <div class="dtaprof">
+                            <button type="button" id="buttonp" class="button button-cancel" data-bs-dismiss="offcanvas">Cancelar</button>
+                            <button type="button" id="buttons" class="button button-save" onclick="create_user()">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+           
+function create_user() {
+    // Pegando os valores dos campos do formulário
+    const nomeProfessor = document.getElementById('usernameprof').value;
+    const emailProfessor = document.getElementById('emailprof').value;
+    const telefoneProfessor = document.getElementById('telefone_celularprof').value;
+    const enderecoProfessor = document.getElementById('enderecoprof').value;
+    const imagemProfessor = document.getElementById('fileInputprofessor').files[0]; // Arquivo de imagem
+
+    if (imagemProfessor) {
+        // Usando FileReader para converter a imagem em base64
+        const reader = new FileReader();
+        
+        reader.onload = function(event) {
+            const base64Image = event.target.result; // A imagem em base64
+
+            // Exemplo de como os dados podem ser armazenados em um objeto
+            const formData = {
+                name: nomeProfessor,
+                email: emailProfessor,
+                phone: telefoneProfessor,
+                address: enderecoProfessor,
+                image: base64Image // Aqui a imagem em base64
+            };
+            
+            console.log(base64Image)
+            // Iniciando a requisição fetch
+            fetch('http://localhost:8090/api/teacher', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + sessionStorage.getItem("access_token")
+                },
+                body: JSON.stringify(formData) // Enviando os dados no corpo da requisição
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert("Professor cadastrado com sucesso!");
+                } else {
+                    alert("Ocorreu um erro ao cadastrar o professor.");
+                }
+            })
+            .catch(error => {
+                console.error('Erro na requisição:', error);
+            });
+        };
+
+        reader.readAsDataURL(imagemProfessor); // Converte a imagem em base64
+    } else {
+        // Se não houver imagem, envia apenas os outros dados
+        const formData = {
+            name: nomeProfessor,
+            email: emailProfessor,
+            address: enderecoProfessor,
+            phone: telefoneProfessor,
+            image: "" // Sem imagem
+        };
+
+        // Iniciando a requisição fetch
+        fetch('http://localhost:8090/api/teacher', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("access_token")
+            },
+            body: JSON.stringify(formData) // Enviando os dados no corpo da requisição
+        }).then(response => {
+            if (response.ok) {
+                alert("Professor cadastrado com sucesso!");
+            } else {
+                alert("Ocorreu um erro ao cadastrar o professor.");
+            }
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error);
+        });
+    }
+}
+
+        </script>
+       <div class="professor-card">
+            <img src="https://via.placeholder.com/250x150" alt="Imagem do Professor">
+            <h3>Samuel da Silva de Deus</h3>
+            <p>samuelsilva@gmail.com</p>
+            <div class="card-icons">
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+        <div class="professor-card">
+            <div class="professor-card">
+                <img src="https://via.placeholder.com/250x150" alt="Imagem do Professor">
+                <h3>Samuel da Silva de Deus</h3>
+                <p>samuelsilva@gmail.com</p>
+                <div class="card-icons">
+                    <i class="fas fa-edit"></i>
+                    <i class="fas fa-trash-alt"></i>
+                </div>
+            </div>
+        </div>
+            <img src="https://via.placeholder.com/250x150" alt="Imagem do Professor">
+            <h3>Samuel da Silva de Deus</h3>
+            <p>samuelsilva@gmail.com</p>
+            <div class="card-icons">
+                <i class="fas fa-edit"></i>
+                <i class="fas fa-trash-alt"></i>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        
+    </script>
+</body>
+</html>

@@ -8,14 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style_log.css">
-    <link rel="shortcut icon" href="imgs/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="styles/style_log.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <title>FullEduca - Login</title>
 </head>
 
 <body>
     <div class="parte1">
-        <img src="imgs/Ativo 8@2x.png" class="Flogo" alt="Logo da empresa Fulltime">
+        <img src="img/Ativo 8@2x.png" class="Flogo" alt="Logo da empresa Fulltime">
 
         <div class="Cad_box">
             <h1 class="Titulo">Login</h1>
@@ -47,26 +47,30 @@
             data.append('username', email);
             data.append('password', password);
 
-            fetch('http://localhost:8080/api/auth/authenticate', {
+            fetch('http://localhost:8070/api/auth/authenticate', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded'
                 },
                 body: data.toString()
             })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Falha na autenticação. Código de status: ' + response.status);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    window.location.href = 'dashboard.html';
-                })
-                .catch(error => {
-                    console.error('Erro:', error);
-                    alert('Ocorreu um erro. Tente novamente mais tarde.');
-                });
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Falha na autenticação. Código de status: ' + response.status);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("TOKEN RECEBIDO:")
+                console.log(data);
+                sessionStorage.setItem("access_token", data["access_token"]);
+                sessionStorage.setItem("refresh_token", data["refresh_token"]);
+                window.location.href = 'dashboard.html';
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Ocorreu um erro. Tente novamente mais tarde.');
+            });
         }
     </script>
 </body>

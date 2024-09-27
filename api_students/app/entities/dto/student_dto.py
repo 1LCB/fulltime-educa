@@ -6,7 +6,7 @@ class StudentCreate(BaseModel):
     name: str
     email: str
     # password: str
-    date_of_birth: str
+    date_of_birth: str = "2024-01-01"
     gender: str
     ethnicity: str
     birth_city: str
@@ -27,7 +27,7 @@ class StudentCreate(BaseModel):
     total_classes: int = 0
     attendances: int = 0
     absences: int = 0
-    image: str
+    image: str = ""
 
 
 class StudentInsertInDatabase(BaseModel):

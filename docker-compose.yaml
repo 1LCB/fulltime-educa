@@ -1,0 +1,66 @@
+version: '3'
+services:
+  api-students:
+    build:
+      context: ./api_students
+      dockerfile: Dockerfile
+    env_file:
+      - ./api_students/.env
+    restart: always
+    ports:
+      - "8080:8080"
+    networks:
+      - fulltime-educa-network
+    depends_on:
+      - mysql 
+
+  api-teachers:
+    build:
+      context: ./api_teachers
+      dockerfile: Dockerfile
+    env_file:
+      - ./api_teachers/.env
+    restart: always
+    ports:
+      - "8090:8080"
+    networks:
+      - fulltime-educa-network
+    depends_on:
+      - mysql 
+
+  mysql:
+    image: mysql:latest
+    container_name: meu-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sistema_escola
+      MYSQL_USER: user
+      MYSQL_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - fulltime-educa-mysql:/var/lib/mysql
+    networks:
+      - fulltime-educa-network
+    restart: always
+
+  api-auth:
+    build:
+      context: ./auth_api
+      dockerfile: Dockerfile
+    env_file:
+      - ./auth_api/.env
+    restart: always
+    ports:
+      - "8070:8080"
+    networks:
+      - fulltime-educa-network
+    depends_on:
+      - mysql 
+
+networks:
+  fulltime-educa-network:
+    driver: bridge
+
+volumes:
+  fulltime-educa-mysql:

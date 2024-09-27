@@ -1,0 +1,1 @@
+docker run --rm -d --name meu-mysql -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=sistema_escola -e MYSQL_USER=user -e MYSQL_PASSWORD=root -p 3306:3306 -v fulltime-educa-mysql:/var/lib/mysql mysql:latest

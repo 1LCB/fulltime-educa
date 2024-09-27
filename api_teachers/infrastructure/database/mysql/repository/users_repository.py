@@ -1,4 +1,4 @@
-from app.entities.models.db_models import Users, Permissions, GroupPermissions
+from app.entities.models.db_models import User, Permission, GroupPermission
 from app.entities.dto.user_dto import UserDTO
 from infrastructure.database.mysql.settings.connection_handler import ConnectionHandler
 
@@ -11,7 +11,7 @@ class UsersRepository():
         """
         with ConnectionHandler() as session:
             try:
-                u = Users(**user.model_dump())
+                u = User(**user.model_dump())
 
                 session.add(u)
                 session.commit()
@@ -27,14 +27,14 @@ class UsersRepository():
     def get_users_permissions_by_user_id(user_id: int) -> list[str]:
         with ConnectionHandler() as session:
             try:
-                user = session.query(Users).filter_by(ID=user_id).first()
+                user = session.query(User).filter_by(ID=user_id).first()
                 if user is None:
                     return None
 
                 group_id = user.group_id
 
-                permissions = session.query(Permissions).join(GroupPermissions).\
-                    filter(GroupPermissions.group_id == group_id).all()
+                permissions = session.query(Permission).join(GroupPermission).\
+                    filter(GroupPermission.group_id == group_id).all()
 
                 return [permission.name for permission in permissions]
             except Exception as e:
@@ -45,7 +45,7 @@ class UsersRepository():
     def delete_user_by_id(user_id: int) -> bool:
         with ConnectionHandler() as session:
             try:
-                affected_rows = session.query(Users).filter(Users.id==user_id).delete()
+                affected_rows = session.query(User).filter(User.id==user_id).delete()
                 return affected_rows > 0
             except Exception as e:
                 print("EXCEPTION", e)

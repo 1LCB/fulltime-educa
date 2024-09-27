@@ -14,7 +14,7 @@ get_usecase = lambda: TeachersUseCase(
     email_sender=EmailSender()
 )
 
-oauth2 = OAuth2PasswordBearer("http://localhost:8080/api/auth/authenticate")
+oauth2 = OAuth2PasswordBearer("http://localhost:8070/api/auth/authenticate")
 router = APIRouter(prefix="/api/teacher", tags=["Teacher"])
 
 

@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from app.entities.dto.teacher_dto import TeacherUpdateDTO
 from app.entities.dto.teacher_dto import TeacherInsertInDatabaseDTO
-from app.entities.models.db_models import Teachers
+from app.entities.models.db_models import Teacher, User
 
 class TeacherRepositoryGateway(ABC):
     @staticmethod
@@ -16,7 +16,7 @@ class TeacherRepositoryGateway(ABC):
 
     @staticmethod
     @abstractmethod
-    def get_teacher_by_id(id: int) -> Teachers:
+    def get_teacher_by_id(id: int) -> Teacher | User:
         pass
 
     @staticmethod

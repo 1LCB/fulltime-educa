@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <title>Full Educa</title>
+</head>
+<body>
+    <header class="header">
+        <section class="menu_logo_container">
+            <button class="trocar-btn">
+                <img src="img/icons/menu_icon.svg" alt="Icon Menu">
+            </button>
+            <div class="logo">
+                <img src="img/logo.png" alt="Logo">
+                <span>Full Educa</span>
+            </div>
+        </section>
+        <div class="barra-pesquisa">
+            <input class="barra-pesquisa-input" type="text" placeholder="Pesquisar">
+            <button class="pesquisar-btn">
+                <img src="img/icons/pesquisar_icon.svg" alt="Search">
+            </button>
+        </div>
+        <div class="header-actions">
+            <button class="recarregar-btn" onclick="recarregarPagina()">
+                <img src="img/icons/recarregar_icon.svg" alt="Refresh">
+            </button>
+            <button class="user-btn">
+                <span>S</span>
+            </button>
+        </div>
+    </header>
+
+
+    <div class="sidebar">
+        <ul>
+            <li>
+                <a href="dashboard.html">
+                    <img src="img/icons/dashboard_icon.svg" alt="Icon Dashboard">
+                    <span class="item-text">DashBoard</span>
+                </a>
+            </li>
+            <li>
+                <a href="aluno.html">
+                    <img src="img/icons/aluno_icon.svg" alt="Icon Students">
+                    <span class="item-text">Alunos</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/mat_curso_icon.svg" alt="Icon Students">
+                    <span class="item-text">Cadastrar Curso</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/aulas_icon.svg" alt="Icon Students">
+                    <span class="item-text">Aulas</span>
+                </a>
+            </li>
+            <li>
+                <a href="prof.html">
+                    <img src="img/icons/professor_icon.svg" alt="Icon Students">
+                    <span class="item-text">Professores</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/avaliacao_icon.svg" alt="Icon Students">
+                    <span class="item-text">Avaliações</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/turmas_icon.svg" alt="Icon Students">
+                    <span class="item-text">Turmas</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/icons/frequencia_icon.svg" alt="Icon Students">
+                    <span class="item-text">Frequência</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="conteudo">
+        <div class="top_menu">
+            <div class="logo"> Aluno</div>
+            <div style="display: flex;">
+                <button class="add-button"  data-bs-toggle="offcanvas" href="#offcanvasAluno" role="button" aria-controls="offcanvasExample">
+                    <i class="fas fa-plus"></i> Add
+                </button>  
+                <svg style="margin: 1rem;" width="30px" height="30px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M3.9 54.9C10.5 40.9 24.5 32 40 32l432 0c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L320 320.9 320 448c0 12.1-6.8 23.2-17.7 28.6s-23.8 4.3-33.5-3l-64-48c-8.1-6-12.8-15.5-12.8-25.6l0-79.1L9 97.3C-.7 85.4-2.8 68.8 3.9 54.9z"/></svg>            
+            </div>
+        </div>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasAluno" aria-labelledby="offcanvasExampleLabel" style="width: 800px;">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Cadastrar Aluno</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <div  class="detalhesprof">
+                    <form>
+                        <div class="dtaname">
+                            <label for="username">Nome de Usuário:</label>
+                            <input type="text" id="username" name="username" placeholder="Digitar nome do usuário" required>
+                        </div><br>
+        
+                        <div class="dtaemail">
+                            <label for="email">E-mail:</label>
+                            <input type="email" id="email" name="email" placeholder="Digitar email do usuário" required>
+                        </div><br>
+        
+                        <div class="dtara">
+                            <label for="ra">RA:</label>
+                            <input type="text" id="ra" name="ra" required>
+                        </div><br>
+        
+                        <div class="dtaturma">
+                            <label for="turma_ingresso">Turma de Ingresso:</label>
+                            <input type="text" id="turma_ingresso" name="turma_ingresso" required>
+                        </div><br>
+        
+                        <div class="dtasexo">
+                            <label for="sexo">Sexo:</label>
+                            <select id="sexo" name="sexo" required>
+                                <option value="masculino">Masculino</option>
+                                <option value="feminino">Feminino</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div><br>
+        
+                        <div class="dtacor">
+                            <label for="cor">Cor:</label>
+                            <input type="text" id="cor" name="cor" required>
+                        </div><br>
+        
+                        <div class="dtacidade">
+                            <label for="cidade_nascimento">Cidade de Nascimento:</label>
+                            <input type="text" id="cidade_nascimento" name="cidade_nascimento"
+                                placeholder="Digitar cidade de nascimento" required>
+                        </div><br>
+        
+                        <div class="dtarg">
+                            <label for="rg">RG:</label>
+                            <input type="text" id="rg" name="rg" placeholder="(000.000.000-0)" required>
+                        </div><br>
+        
+                        <div class="dtacpf">
+                            <label for="cpf">CPF:</label>
+                            <input type="text" id="cpf" name="cpf" placeholder="(00000000000)" required>
+                        </div><br>
+        
+                        <div class="dtatelefone">
+                            <label for="telefone_celular">Telefone Celular:</label>
+                            <input type="tel" id="telefone_celular" name="telefone_celular"
+                                placeholder="Digitar número de telefone" required>
+                        </div><br>
+        
+                        <div class="dtaendereco">
+                            <label for="endereco">Endereço:</label>
+                            <input type="text" id="endereco" name="endereco" placeholder="Digitar Endereço" required>
+                        </div><br>
+        
+                        <div class="dtacomplemento">
+                            <label for="complemento_residencial">Complemento Residencial:</label>
+                            <input type="text" id="complemento_residencial" placeholder="Digitar complemento residencial"
+                                name="complemento_residencial">
+                        </div><br>
+        
+                        <div class="dtapai">
+                            <label for="pai">Pai:</label>
+                            <input type="text" id="pai" name="pai" placeholder="Digitar nome do pai" required>
+                        </div><br>
+        
+                        <div class="dtamae">
+                            <label for="mae">Mãe:</label>
+                            <input type="text" id="mae" name="mae" placeholder="Digitar nome da mãe">
+                        </div><br>
+        
+                        <div class="dtaescolacursada">
+                            <label for="escola_cursada">Escola Cursada no Ensino Médio:</label>
+                            <input type="text" id="escola_cursada" name="escola_cursada" required>
+                        </div><br>
+        
+                        <div class="dtaescolaatual">
+                            <label for="escola_atual">Escola Atual:</label>
+                            <input type="text" id="escola_atual" name="escola_atual" required>
+                        </div><br>
+        
+                        <div class="dta turno-container">
+                            <label for="turno">Turno</label>
+                            <div class="turno-options">
+                                <input type="radio" id="manha" name="turno" value="manha">
+                                <label for="manha" class="turno-label">Manhã</label>
+        
+                                <input type="radio" id="tarde" name="turno" value="tarde">
+                                <label for="tarde" class="turno-label">Tarde</label>
+        
+                                <input type="radio" id="noite" name="turno" value="noite">
+                                <label for="noite" class="turno-label">Noite</label>
+                            </div>
+                        </div><br>
+        
+                        <div class="dtasetor">
+                            <label for="setor">Setor:</label>
+                            <input type="text" id="setor" name="setor" required>
+                        </div><br>
+        
+                        <div class="dtadataingresso">
+                            <label for="data_ingresso">Data de Ingresso:</label>
+                            <input type="date" id="data_ingresso" name="data_ingresso" placeholder="00/00/0000" required>
+                        </div><br>
+        
+                        <div class="dataconclusao">
+                            <label for="data_conclusao">Data de Conclusão:</label>
+                            <input type="date" id="data_conclusao" name="data_conclusao" required>
+                        </div><br>
+        
+                        <div class="dtatrabalha">
+                            <label for="trabalha">Trabalha?</label>
+                            <select id="trabalha" name="trabalha" required>
+                                <option value="sim">Sim</option>
+                                <option value="nao">Não</option>
+                            </select>
+                        </div><br>
+        
+                        <div class="dtasituacao">
+                            <label for="situacao">Situação:</label>
+                            <input type="text" id="situacao" name="situacao" required>
+                        </div><br>
+                          <!--imagem do usuário-->
+                        <div class="imguser">
+                            <h1>Imagem do Usuário</h1>
+                            <div class="position-relative">
+                                <div class="upload-container" onclick="document.getElementById('fileInput').click()">
+                                    <img src="img/icons/Vector (1).png" alt="Upload Icon">
+                                    <input type="file" id="fileInputaluno" accept="image/*">
+                                    <p class="text-form-I">Selecione ou arraste sua imagem aqui</p>
+                                    <p class="text-form-II">Clique aqui para seleciona</p>
+                                </div>
+                            </div>
+                        </div><br>
+                        <div class="dta">
+                            <button class="button button-cancel">Cancelar</button>
+                            <button class="button button-save" onclick="create_user()">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!-- Segundo top_menu -->
+        <div id="top_menu" >
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imagem</th>
+                        <th>Nome Completo</th>
+                        <th>Situação</th>
+                        <th>Cursos Atuais</th>
+                        <th>Cursos Realizados</th>
+                        <th>Turma de Ingresso</th>
+                        <th>Turno</th>
+                        <th>Setor</th>
+                        <th>Data de Ingresso</th>
+                        <th>Data de Conclusão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><img src="imgs/student1.jpg" alt="Imagem do Aluno 1" width="50" height="50"></td>
+                        <td>Maria da Silva</td>
+                        <td>Ativo</td>
+                        <td>Administração</td>
+                        <td>Fundamentos de Gestão, Marketing Digital</td>
+                        <td>2023</td>
+                        <td>Manhã</td>
+                        <td>Gestão</td>
+                        <td>01/02/2023</td>
+                        <td>Em andamento</td>
+                    </tr>
+                    <!-- Outros dados de alunos -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function create_user() {
+            const name = document.getElementById("username").value;
+            const email = document.getElementById("email").value;
+            const ra = document.getElementById("ra").value;
+            const turma_ingresso = document.getElementById("turma_ingresso").value;
+            const gender = document.getElementById("sexo").value;
+            const ethnicity = document.getElementById("cor").value;
+            const birth_city = document.getElementById("cidade_nascimento").value;
+            const id_card = document.getElementById("rg").value;
+            const cpf = document.getElementById("cpf").value;
+            const phone = document.getElementById("telefone_celular").value;
+            const address = document.getElementById("endereco").value;
+            const residential_complement = document.getElementById("complemento_residencial").value;
+            const father_name = document.getElementById("pai").value;
+            const mother_name = document.getElementById("mae").value;
+            const school_attended = 1; //document.getElementById("escola_cursada").value;
+            const current_school = 1; //document.getElementById("escola_atual").value;
+            const shift = document.querySelector("input[name='turno']:checked").value;
+            const sector_id = 1; //document.getElementById("setor").value;
+            const admission_date = document.getElementById("data_ingresso").value;
+            const completion_date = document.getElementById("data_conclusao").value;
+            const course_status = document.getElementById("situacao").value;
+
+            // Supondo que os campos "total_classes", "attendances", "absences" e "image" não estão no formulário
+            const total_classes = 0; // Valor padrão
+            const attendances = 0; // Valor padrão
+            const absences = 0; // Valor padrão
+            const image = "..."; // Valor padrão
+
+            // Crie o payload com os dados
+            const payload = {
+                name,
+                email,
+                date_of_birth: "", // Não disponível no formulário
+                gender,
+                ethnicity,
+                birth_city,
+                id_card,
+                cpf,
+                phone,
+                address,
+                residential_complement,
+                father_name,
+                mother_name,
+                school_attended: parseInt(school_attended),
+                current_school: parseInt(current_school),
+                shift,
+                sector_id: parseInt(sector_id),
+                admission_date,
+                completion_date,
+                course_status,
+                total_classes,
+                attendances,
+                absences,
+                image
+            };
+
+            // Faça o POST para a API
+            fetch("http://localhost:8000/api/student", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Success:", data);
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
+        }
+    </script>
+</body>
+</html>

@@ -36,12 +36,12 @@ class TeachersUseCase:
 
     def get_all_teachers(self, user_id: int) -> HTTPResponse:
         teachers = self.teachers_repository.get_all_teachers()
-
         response = [
             TeacherReadDTO(
                 id=t.id,
                 name=t.name,
-                cpf=t.cpf,
+                address=t.address,
+                phone=t.phone,
                 email=t.email,
                 image_path=t.image_path,
                 user_id=t.user_id
@@ -64,7 +64,8 @@ class TeachersUseCase:
         teacher_response = TeacherReadDTO(
             id=teacher.id,
             name=teacher.name,
-            cpf=teacher.cpf,
+            address=teacher.address,
+            phone=teacher.phone,
             email=teacher.email,
             image_path=teacher.image_path,
             user_id=teacher.user_id
@@ -83,7 +84,8 @@ class TeachersUseCase:
         hashed_psasword = HashManager.hash_password(password)
         user_id = self.users_repository.create_new_user(
             user=UserDTO(
-                **teacher_create.model_dump(), 
+                email=teacher_create.email,
+                name=teacher_create.name,
                 password=hashed_psasword, 
                 image_path=image_filename
             )
@@ -103,7 +105,8 @@ class TeachersUseCase:
         response = TeacherReadDTO(
             id=teacher_db.id,
             name=teacher_db.name,
-            cpf=teacher_db.cpf,
+            phone=teacher_db.phone,
+            address=teacher_db.address,
             email=teacher_db.email,
             image_path=teacher_db.image_path,
             user_id=teacher_db.user_id
@@ -139,7 +142,8 @@ class TeachersUseCase:
         teacher_response = TeacherReadDTO(
             id=response.id,
             name=response.name,
-            cpf=response.cpf,
+            address=response.address,
+            phone=response.phone,
             email=response.email,
             image_path=response.image_path,
             user_id=response.user_id
@@ -154,7 +158,11 @@ class TeachersUseCase:
         return "".join(random.sample(list(string.ascii_lowercase + string.ascii_uppercase + string.digits), size))
     
     def save_photo(self, photo_base64: str) -> str:
+        photo_base64 = photo_base64.split(";base64,")[-1]
         try:
+            if not photo_base64:
+                return "unknown.png"
+            
             filename = f"{uuid.uuid4()}.jpg"
             with open(f"app/uploads/{filename}", "wb") as file:
                 file.write(base64.b64decode(photo_base64))
