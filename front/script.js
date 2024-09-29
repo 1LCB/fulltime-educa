@@ -1,4 +1,10 @@
 // SideBar Expandida
+var TEACHERS_LIST;
+
+function list_teachers() {
+    console.log(TEACHERS_LIST)
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const trocarBtn = document.querySelector('.trocar-btn');
     const sidebar = document.querySelector('.sidebar');
@@ -33,6 +39,9 @@ document.addEventListener('DOMContentLoaded', () => {
         secao2.innerHTML = ''; // Opcional: limpa antes de adicionar novos elementos
 
         // Iterando sobre o array de objetos recebido
+
+        TEACHERS_LIST = data; //TEACHERS LIST #############################################
+
         data.forEach(teacher => {
             const cardiTotal = document.createElement('div');
             cardiTotal.classList.add('cardi-total');
