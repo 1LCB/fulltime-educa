@@ -99,7 +99,7 @@ class TeachersUseCase:
                 status_code=HTTPStatus.BAD_REQUEST,
             )
         
-        self.email_sender.send_email(t.name, t.email, password)
+        # self.email_sender.send_email(t.name, t.email, password)
 
         teacher_db = self.teachers_repository.get_teacher_by_id(teacher)
         response = TeacherReadDTO(
